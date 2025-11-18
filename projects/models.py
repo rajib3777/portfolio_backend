@@ -38,4 +38,4 @@ class ProjectImage(models.Model):
     image = models.ImageField(upload_to="project_images/")
 
     def __str__(self):
-        return f"{self.project.title}"
+        return f"Image for {self.project.title}"
