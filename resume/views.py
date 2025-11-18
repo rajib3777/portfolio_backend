@@ -5,24 +5,34 @@ from reportlab.lib.pagesizes import A4
 
 from portfolio.models import (
     HeroSection, AboutSection, Education, Experience,
-    SkillCategory, Project
+    SkillCategory
 )
+from projects.models import Project
 
 def dynamic_resume(request):
-    
+    """
+    তোমার portfolio + projects ডাটা নিয়ে
+    একটায় professional resume PDF বানাবে।
+    """
 
     response = HttpResponse(content_type="application/pdf")
     response["Content-Disposition"] = 'attachment; filename="resume.pdf"'
 
-    doc = SimpleDocTemplate(response, pagesize=A4,
-                            leftMargin=40, rightMargin=40,
-                            topMargin=40, bottomMargin=40)
+    doc = SimpleDocTemplate(
+        response,
+        pagesize=A4,
+        leftMargin=40,
+        rightMargin=40,
+        topMargin=40,
+        bottomMargin=40,
+    )
     styles = getSampleStyleSheet()
     elements = []
 
     hero = HeroSection.objects.first()
     about = AboutSection.objects.first()
 
+    # Header
     if hero:
         elements.append(Paragraph(f"<b>{hero.name}</b>", styles["Title"]))
         elements.append(Paragraph(hero.title, styles["Heading2"]))
