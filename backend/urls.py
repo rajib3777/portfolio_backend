@@ -10,7 +10,7 @@ urlpatterns = [
     path('api/contact/', include('contact.urls')),
     path('api/resume/', include('resume.urls')),
     path('api/projects/', include('projects.urls')),
-    path('api/core/', include('core.urls')),
+
 ]
 
 if settings.DEBUG:
