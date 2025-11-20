@@ -30,6 +30,9 @@ INSTALLED_APPS = [
     
     'rest_framework',
     'corsheaders',
+
+    'cloudinary',
+    'cloudinary_storage',
     
     'blog',
     'contact',
@@ -151,3 +154,5 @@ REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 10,
 }
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
