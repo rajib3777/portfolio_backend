@@ -16,4 +16,6 @@ tzdata==2025.2
 urllib3==2.6.1
 gunicorn
 psycopg2-binary
+reportlab
+
 
